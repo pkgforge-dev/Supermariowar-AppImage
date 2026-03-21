@@ -6,21 +6,22 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm cmake enet sdl3_image sdl3_mixer toml11
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+echo "Building Super Mario War..."
+echo "---------------------------------------------------------------"
+REPO="https://github.com/mmatyas/supermariowar"
+VERSION="$(git ls-remote "$REPO" refs/heads/sdl3 | cut -c 1-9)"
+git clone --recursive --branch sdl3 --depth 1 "$REPO" ./supermariowar
+echo "$VERSION" > ~/version
 
-# If the application needs to be manually built that has to be done down here
+cmake -B build -S ./supermariowar -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/ -DBUILD_STATIC_LIBS=OFF
+cmake --build build -j$(nproc)
+cmake --install build
 
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+mkdir -p ./AppDir/bin/data
+mv -v /usr/share/games/smw/* ./AppDir/bin/data
