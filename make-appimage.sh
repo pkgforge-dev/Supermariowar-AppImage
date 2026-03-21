@@ -13,7 +13,7 @@ export DESKTOP=/usr/share/applications/supermariowar.desktop
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /usr/games/bin/smw
+quick-sharun /usr/bin/smw
 
 # Additional changes can be done in between here
 
