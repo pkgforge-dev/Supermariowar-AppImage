@@ -11,7 +11,7 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=/usr/share/icons/hicolor/32x32/apps/smw.png
 export DESKTOP=/usr/share/applications/supermariowar.desktop
 export STARTUPWMCLASS=smw
-export USE_HOST_DRIVERS_EXPERIMENTAL=1
+export DEPLOY_OPENGL=1
 
 # Deploy dependencies
 quick-sharun /usr/bin/smw /usr/bin/smw-leveledit /usr/bin/smw-server /usr/bin/smw-worldedit /usr/lib/libvorbisfile.so.3
