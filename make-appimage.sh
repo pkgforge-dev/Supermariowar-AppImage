@@ -13,7 +13,7 @@ export STARTUPWMCLASS=smw
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/smw /usr/bin/smw-leveledit /usr/bin/smw-server /usr/bin/smw-worldedit /usr/lib/libvorbisfile.so.3
+quick-sharun /usr/games/smw /usr/games/smw-* /usr/lib/libvorbisfile.so.3
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
