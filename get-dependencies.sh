@@ -9,7 +9,6 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     cmake      \
     enet       \
-    pkgconf    \
     sdl3_image \
     sdl3_mixer \
     toml11
