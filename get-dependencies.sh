@@ -20,7 +20,7 @@ get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 echo "Building Super Mario War..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/mmatyas/supermariowar"
-VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+VERSION="$(git ls-remote "$REPO" refs/heads/sdl3 | cut -c 1-9)"
 git clone --recursive --branch sdl3 --depth 1 "$REPO" ./supermariowar
 echo "$VERSION" > ~/version
 
