@@ -21,7 +21,7 @@ echo "Building Super Mario War..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/mmatyas/supermariowar"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-git clone --recursive -b sdl3 --depth 1 "$REPO" ./supermariowar
+git clone --recursive --branch sdl3 --depth 1 "$REPO" ./supermariowar
 echo "$VERSION" > ~/version
 
 cmake -B build -S supermariowar \
