@@ -36,7 +36,6 @@ echo "$VERSION" > ~/version
 cmake -B build -S supermariowar \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr/ \
-    -DSMW_BINDIR=bin \
     -DBUILD_STATIC_LIBS=OFF
 cmake --build build -j$(nproc)
 cmake --install build
