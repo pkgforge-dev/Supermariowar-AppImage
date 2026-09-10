@@ -33,3 +33,13 @@ VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
 git clone --recursive -b sdl3 --depth 1 "$REPO" ./supermariowar
 echo "$VERSION" > ~/version
 
+cmake -B build -S supermariowar \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr/ \
+    -DSMW_BINDIR=bin \
+    -DBUILD_STATIC_LIBS=OFF
+cmake --build build -j$(nproc)
+cmake --install build
+
+mkdir -p ./AppDir/bin/data
+mv -v /usr/share/games/smw/* ./AppDir/bin/data
