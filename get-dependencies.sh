@@ -6,7 +6,13 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm enet
+pacman -Syu --noconfirm \
+    cmake      \
+    enet       \
+    pkgconf    \
+    sdl3_image \
+    sdl3_mixer \
+    toml11
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
